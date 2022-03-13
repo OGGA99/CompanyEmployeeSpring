@@ -1,6 +1,7 @@
 package com.example.companyemployeespring.controller;
 
 import com.example.companyemployeespring.entity.Employee;
+import com.example.companyemployeespring.service.CompanyService;
 import com.example.companyemployeespring.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
@@ -19,6 +20,7 @@ import java.io.InputStream;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final CompanyService companyService;
 
     @Value("${companyEmployee.upload.path}")
     private String imagePath;
@@ -39,14 +41,14 @@ public class EmployeeController {
 
     @GetMapping("/addEmployees")
     public String addEmployeePage(ModelMap map) {
-        map.addAttribute("companies", employeeService.findAll());
+        map.addAttribute("companies",companyService.findAll());
         return "saveEmployee";
     }
 
     @PostMapping("/addEmployees")
     public String addEmployee(@ModelAttribute Employee employee,
                               @RequestParam("picture") MultipartFile uploadFile) throws IOException {
-       employeeService.saveEmployeeWithimages(employee,uploadFile);
+        employeeService.saveEmployeeWithImages(employee,uploadFile);
         return "redirect:/employees";
 
     }

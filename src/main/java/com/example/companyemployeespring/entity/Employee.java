@@ -20,7 +20,6 @@ public class Employee {
     private String name;
     private String surname;
     private String email;
-    @Column(name = "phone_number")
     private String phoneNumber;
     private double salary;
     private String position;

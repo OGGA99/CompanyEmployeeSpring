@@ -19,7 +19,7 @@ public class EmployeeService {
     @Value("${companyEmployee.upload.path}")
     private String imagePath;
 
-    public Employee saveEmployeeWithimages(Employee employee, MultipartFile uploadedFile) throws IOException {
+    public Employee saveEmployeeWithImages(Employee employee, MultipartFile uploadedFile) throws IOException {
         if (!uploadedFile.isEmpty()) {
             String fileName = System.currentTimeMillis() + "_" + uploadedFile.getOriginalFilename();
             File newFile = new File(imagePath + fileName);
