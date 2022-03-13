@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{home.page}"></title>
+</head>
+<body>
+<a href="?lang=hy">Armenian</a> | <a href="?lang=ru">Russian</a> | <a href="?lang=en">English</a>
+<br><br>
+<a href="/companies" th:text="#{home.all.companies}"></a>
+<a href="/employees" th:text="#{home.all.employees}"></a>
+</body>
+</html>
